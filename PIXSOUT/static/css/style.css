@@ -4,4 +4,24 @@
 
 .nav-link {
     margin-left: 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.icon {
+    margin-left: 100px;
+    height: 65px;
+}
+
+.icon_name {
+    margin-left: 25px;
+}
+
+header {
+    background: #606060;
+    border-bottom: 0;
+}
+
+body {
+    background: #808080;
 }
