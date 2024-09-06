@@ -1,11 +1,24 @@
-.text-end {
-    margin-right: 15px;
+header {
+    background: #606060;
+    border-bottom: 0;
 }
 
-.nav-link {
+body {
+    background: #808080;
+}
+
+.text-end {
+    margin-right: 15px;
+    font-family: monospace;
+}
+
+.btn-outline-light {
     margin-left: 25px;
-    color: white;
-    text-decoration: none;
+    font-family: monospace;
+}
+
+.nav {
+    margin-left: 10%;
 }
 
 .icon {
@@ -15,13 +28,21 @@
 
 .icon_name {
     margin-left: 25px;
+    color: white;
+    font-family: 'Public Pixel', sans-serif;
 }
 
-header {
-    background: #606060;
-    border-bottom: 0;
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 
-body {
-    background: #808080;
+.card-title {
+    font-family: 'Public Pixel'
+}
+
+.card-text {
+    font-family: monospace;
+    font-size: 19px;
 }
