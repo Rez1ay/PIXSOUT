@@ -47,16 +47,19 @@ body {
     font-size: 19px;
 }
 
-.download {
+.central-big-btn {
     margin-top: 50px;
     flex-direction: column;
     display: flex;
     align-items: center;
 }
 
-.download-btn {
+.central-big-btn a {
+    padding-bottom: 10px;
+}
+
+.central-big-btn .btn {
     width: 600px;
     height: 75px;
     font-size: 30px;
-    margin-left: 100px;
 }
