@@ -46,3 +46,17 @@ body {
     font-family: monospace;
     font-size: 19px;
 }
+
+.download {
+    margin-top: 50px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.download-btn {
+    width: 600px;
+    height: 75px;
+    font-size: 30px;
+    margin-left: 100px;
+}
