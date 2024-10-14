@@ -12,7 +12,7 @@ body {
     font-family: monospace;
 }
 
-.btn-outline-light {
+header .btn-outline-light {
     margin-left: 25px;
     font-family: monospace;
 }
@@ -45,6 +45,11 @@ body {
 .card-text {
     font-family: monospace;
     font-size: 19px;
+}
+
+.card-header {
+    font-family: monospace;
+    font-size: 24px;
 }
 
 .central-big-btn {
