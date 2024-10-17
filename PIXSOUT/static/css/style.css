@@ -68,3 +68,8 @@ header .btn-outline-light {
     height: 75px;
     font-size: 30px;
 }
+
+.img-fluid {
+    max-width: 150px;
+    max-height: 150px;
+}

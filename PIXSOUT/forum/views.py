@@ -7,3 +7,7 @@ def forum(request):
     data = {'forum_themes': forum_themes}
 
     return render(request, 'forum/forum.html', context=data)
+
+
+def theme(request, theme_name):
+    return render(request, 'forum/theme.html')
