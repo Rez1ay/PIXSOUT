@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.forum, name='forum'),
-    path('/<slug:theme_name>', views.theme)
+    path('<slug:theme_name>', views.theme)
 ]
