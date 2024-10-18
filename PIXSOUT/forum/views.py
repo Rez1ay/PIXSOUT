@@ -10,4 +10,8 @@ def forum(request):
 
 
 def theme(request, theme_name):
-    return render(request, 'forum/theme.html')
+    theme_id = Theme.objects.get(name=theme_name).id
+    publications = Publication.objects.filter(theme_id=theme_id)
+    data = {'publications': publications}
+
+    return render(request, 'forum/theme.html', data)

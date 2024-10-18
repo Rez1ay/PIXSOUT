@@ -13,3 +13,5 @@ class Publication(models.Model):
     text = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+
+    objects = models.Manager()
