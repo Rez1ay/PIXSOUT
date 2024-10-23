@@ -5,27 +5,15 @@
 <div class="album">
     <div class="container" style="max-width: 1820px;">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for screenshot in screenshots %}
         <div class="col">
           <div class="card border-dark">
-            <a href="{% static 'img/scrn_01.jpg' %}" target="_blank">
-              <img src="{% static 'img/scrn_01.jpg' %}" class="card-img-top" alt="screenshot_1">
+            <a href="{{ screenshot.image.url }}" target="_blank">
+              <img src="{{ screenshot.image.url }}" class="card-img-top" alt="">
             </a>
           </div>
         </div>
-        <div class="col">
-          <div class="card border-dark">
-            <a href="{% static 'img/scrn_02.jpg' %}" target="_blank">
-              <img src="{% static 'img/scrn_02.jpg' %}" class="card-img-top" alt="screenshot_2">
-            </a>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card border-dark">
-            <a href="{% static 'img/scrn_03.jpg' %}" target="_blank">
-              <img src="{% static 'img/scrn_03.jpg' %}" class="card-img-top" alt="screenshot_3">
-            </a>
-          </div>
-        </div>
+      {% endfor %}
       </div>
     </div>
   </div>
