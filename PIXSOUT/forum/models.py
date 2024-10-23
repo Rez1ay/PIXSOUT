@@ -7,6 +7,13 @@ class Theme(models.Model):
 
     objects = models.Manager()
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Тема форума'
+        verbose_name_plural = 'Темы форума'
+
 
 class Publication(models.Model):
     author = models.CharField(max_length=255)
@@ -15,3 +22,10 @@ class Publication(models.Model):
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
 
     objects = models.Manager()
+
+    def __str__(self):
+        return f'{self.author, self.text[:24]}'
+
+    class Meta:
+        verbose_name = 'Публикация'
+        verbose_name_plural = 'Публикации'
