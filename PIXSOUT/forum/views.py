@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Theme, Publication
+from .forms import AddPublicationForm
 
 
 def forum(request):
@@ -12,6 +13,12 @@ def forum(request):
 def theme(request, theme_name):
     theme_id = Theme.objects.get(name=theme_name).id
     publications = Publication.objects.filter(theme_id=theme_id)
-    data = {'publications': publications}
+
+    if request.method == 'POST':
+        form = AddPublicationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    form = AddPublicationForm()
+    data = {'publications': publications, 'form': form}
 
     return render(request, 'forum/theme.html', data)
