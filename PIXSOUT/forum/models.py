@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Theme(models.Model):
-    name = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
+    name = models.CharField(verbose_name='Тема', max_length=255)
+    title = models.CharField(verbose_name='Название темы', max_length=255)
 
     objects = models.Manager()
 
@@ -16,10 +16,10 @@ class Theme(models.Model):
 
 
 class Publication(models.Model):
-    author = models.CharField(max_length=255)
-    text = models.TextField()
-    time = models.DateTimeField(auto_now_add=True)
-    theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+    author = models.CharField(verbose_name='Автор', max_length=255)
+    text = models.TextField(verbose_name='Текст')
+    time = models.DateTimeField(verbose_name='Время публикации', auto_now_add=True)
+    theme = models.ForeignKey(Theme, verbose_name='Тема', on_delete=models.CASCADE)
 
     objects = models.Manager()
 
