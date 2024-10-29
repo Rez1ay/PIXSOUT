@@ -11,13 +11,16 @@ def forum(request):
 
 
 def theme(request, theme_name):
-    theme_id = Theme.objects.get(name=theme_name).id
-    publications = Publication.objects.filter(theme_id=theme_id)
+    current_theme = Theme.objects.get(name=theme_name)
+    publications = Publication.objects.filter(theme=current_theme)
 
     if request.method == 'POST':
         form = AddPublicationForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_publication = form.save(commit=False)
+            new_publication.theme = current_theme
+            new_publication.save()
+
     form = AddPublicationForm()
     data = {'publications': publications, 'form': form}
 
