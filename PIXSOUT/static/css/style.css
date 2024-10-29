@@ -47,6 +47,10 @@ header .btn-outline-light {
     font-size: 19px;
 }
 
+.card-text textarea {
+    width: 100%;
+}
+
 .card-header {
     font-family: monospace;
     font-size: 24px;
