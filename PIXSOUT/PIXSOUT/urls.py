@@ -25,5 +25,6 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('forum/', include('forum.urls')),
     path('download/', include('download.urls')),
-    path('donate/', include('donate.urls'))
+    path('donate/', include('donate.urls')),
+    path('users/', include('users.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

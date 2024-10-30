@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'gallery.apps.GalleryConfig',
     'forum.apps.ForumConfig',
     'download.apps.DownloadConfig',
-    'donate.apps.DonateConfig'
+    'donate.apps.DonateConfig',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
