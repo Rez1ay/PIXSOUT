@@ -30,8 +30,13 @@
       {% if request.path == '/donate/' %} active {% endif %}">Поддержать проект</a></li>
     </ul>
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-light">Войти</button>
+      {% if user.is_active %}
+      <button type="button" class="btn btn-outline-light">{{ user.username }}</button>
+      <a href="{% url 'logout' %}"><button type="button" class="btn btn-light">Выйти</button></a>
+      {% else %}
+      <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-light">Войти</button></a>
       <button type="button" class="btn btn-light">Регистрация</button>
+      {% endif %}
     </div>
   </header>
   <main>
