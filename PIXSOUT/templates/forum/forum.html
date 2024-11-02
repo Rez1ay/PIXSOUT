@@ -4,15 +4,15 @@
 {% for theme in forum_themes %}
 <div class="card text-center bg-transparent border-light mb-3 text-light" style="max-width: 1100px;">
   <div class="card-header">
-    {{ theme.title }}
+    {{ theme.0.title }}
   </div>
   <div class="card-body">
     <h5 class="card-text">Последняя запись:</h5>
-    <p class="card-text">{{ theme.user }}: {{ theme.message }}</p>
-    <a href='{{ theme.name }}' class="btn btn-outline-light">Открыть</a>
+    <p class="card-text">{{ theme.1.author }}: {{ theme.1.text }}</p>
+    <a href='{{ theme.0.name }}' class="btn btn-outline-light">Открыть</a>
   </div>
-  <div class="card-footer">
-    {{ theme.time }}
+  <div class="card-footer text-body-secondary">
+    Последнее обновление: {{ theme.1.time }}
   </div>
 </div>
 {% endfor %}
