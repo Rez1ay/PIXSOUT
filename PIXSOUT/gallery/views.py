@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
 from .models import Screenshot
 
 
-def gallery(request):
-    screenshots = Screenshot.objects.all()
-    data = {'screenshots': screenshots}
-    return render(request, 'gallery/gallery.html', context=data)
+class Gallery(ListView):
+    model = Screenshot
+    template_name = 'gallery/gallery.html'
+    context_object_name = 'screenshots'

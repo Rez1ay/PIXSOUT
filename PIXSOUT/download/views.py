@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def download(request):
-    return render(request, 'download/download.html')
+class Download(TemplateView):
+    template_name = 'download/download.html'

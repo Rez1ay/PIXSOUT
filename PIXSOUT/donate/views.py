@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def donate(request):
-    return render(request, 'donate/donate.html')
+class Donate(TemplateView):
+    template_name = 'donate/donate.html'
