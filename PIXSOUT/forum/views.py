@@ -1,10 +1,10 @@
-from django.shortcuts import render
 from django.views.generic import ListView
+from django.views.generic.edit import FormMixin
 from .models import Theme, Publication
 from .forms import AddPublicationForm
 
 
-class Forum(ListView):
+class ThemesList(ListView):
     template_name = 'forum/forum.html'
     context_object_name = 'forum_themes'
 
@@ -17,19 +17,24 @@ class Forum(ListView):
         return forum_themes
 
 
-def theme(request, theme_name):
-    current_theme = Theme.objects.get(name=theme_name)
-    publications = Publication.objects.filter(theme=current_theme)
+class PublicationsList(FormMixin, ListView):
+    model = Publication
+    template_name = 'forum/theme.html'
+    context_object_name = 'publications'
+    form_class = AddPublicationForm
 
-    if request.method == 'POST':
-        form = AddPublicationForm(request.POST)
+    def get_success_url(self, **kwargs):
+        return f'/forum/{self.kwargs["theme_name"]}'
+
+    def get_queryset(self):
+        return Publication.objects.filter(theme__name=self.kwargs['theme_name'])
+
+    def post(self, request, **kwargs):
+        form = self.get_form()
+        current_theme = Theme.objects.get(name=kwargs['theme_name'])
         if form.is_valid():
             new_publication = form.save(commit=False)
             new_publication.theme = current_theme
             new_publication.author = request.user
-            new_publication.save()
-
-    form = AddPublicationForm()
-    data = {'publications': publications, 'form': form}
-
-    return render(request, 'forum/theme.html', data)
+            form.save()
+            return self.form_valid(form)
